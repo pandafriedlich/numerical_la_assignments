@@ -9,9 +9,7 @@ function [w,x1] = householder(x)
 
 
 % TODO
-
-
-
-
-    
-w = w/norm(w);
+    x1 = -norm(x)*exp(1j*angle(x(1)));
+    x_reflected = [x1; zeros(length(x)-1, 1)];
+    w = x_reflected - x;
+    w = w/norm(w);
